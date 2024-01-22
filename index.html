@@ -1,68 +1,34 @@
 <!doctype html>
-<html lang="en-us">
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-    <!--Set visual viewport size for mobile devices to the device size,
-        witch results in a scale of 1 and a 1:1 mapping between CSS pixels
-        and Qt device independent pixels. -->
-    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=0"/>
-
-    <title>sample-api</title>
-    <style>
-      /* Make the html body cover the entire (visual) viewport with no scroll bars. */
-      html, body { padding: 0; margin: 0; overflow: hidden; height: 100% }
-      #screen { width: 100%; height: 100%; }
-    </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0">
+    <title>Practice App</title>
+    <link rel="stylesheet" href="w3.css">
+    <script type="text/javascript" language="javascript" src="appqna/appqna.nocache.js"></script>
   </head>
-  <body onload="init()">
-    <figure style="overflow:visible;" id="qtspinner">
-      <center style="margin-top:1.5em; line-height:150%">
-        <img src="qtlogo.svg" width="320" height="200" style="display:block"></img>
-        <strong>Qt for WebAssembly: sample-api</strong>
-        <div id="qtstatus"></div>
-        <noscript>JavaScript is disabled. Please enable JavaScript to use this application.</noscript>
-      </center>
-    </figure>
-    <div id="screen"></div>
-
-    <script type='text/javascript'>
-        let qtLoader = undefined;
-        function init() {
-          var spinner = document.querySelector('#qtspinner');
-          var canvas = document.querySelector('#screen');
-          var status = document.querySelector('#qtstatus')
-
-          qtLoader = new QtLoader({
-              canvasElements : [canvas],
-              showLoader: function(loaderStatus) {
-                  spinner.style.display = 'block';
-                  canvas.style.display = 'none';
-                  status.innerHTML = loaderStatus + "...";
-              },
-              showError: function(errorText) {
-                  status.innerHTML = errorText;
-                  spinner.style.display = 'block';
-                  canvas.style.display = 'none';
-              },
-              showExit: function() {
-                  status.innerHTML = "Application exit";
-                  if (qtLoader.exitCode !== undefined)
-                      status.innerHTML += " with code " + qtLoader.exitCode;
-                  if (qtLoader.exitText !== undefined)
-                      status.innerHTML += " (" + qtLoader.exitText + ")";
-                  spinner.style.display = 'block';
-                  canvas.style.display = 'none';
-              },
-              showCanvas: function() {
-                  spinner.style.display = 'none';
-                  canvas.style.display = 'block';
-              },
-          });
-          qtLoader.loadEmscriptenModule("sample-api");
-      }
-    </script>
-    <script type="text/javascript" src="qtloader.js"></script>
+  <body>
+    <noscript>
+      <div>
+        Your web browser must have JavaScript enabled
+        in order for this application to display correctly.
+      </div>
+    </noscript>
+	<div id="row1" class="w3-row">
+		<div id="r1c1" class="w3-col s2"></div>
+		<div id="r1c2" class="w3-col s5"></div>
+		<div id="r1c3" class="w3-col s5"></div>
+	</div>
+	<div id="row2" class="w3-row">
+		<div id="r2c1" class="w3-col s2"></div>
+		<div id="r2c2" class="w3-col s2"></div>
+		<div id="r2c3" class="w3-col s2"></div>
+		<div id="r2c4" class="w3-col s2"></div>
+		<div id="r2c5" class="w3-col s4"></div>
+	</div>
+	<div id="row3" class="w3-row">
+		<div id="r3c1" class="w3-col m6 l6 s12 w3-border-black"></div>
+		<div id="r3c2" class="w3-col m6 l6 s12 w3-border-black"></div>
+	</div>
   </body>
 </html>
