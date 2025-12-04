@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  edigen-revexp:
+    image: edigen-revexp-v1:latest
+    container_name: edigen-revexp-v1
+    ports:
+      - "8080:8080"
+    volumes:
+      - /home/edipod/claims_upload:/home/edipod/edi_gen_ai/claims_upload
+      - /home/edipod/uploads:/home/edipod/edi_gen_ai/uploads
+      - /home/edipod/config.py:/home/edipod/edi_gen_ai/config.py
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
